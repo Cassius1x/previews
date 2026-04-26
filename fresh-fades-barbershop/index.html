@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresh Fades Barbershop — Premium Barbershop in Nashville, TN</title>
+<meta name="description" content="Fresh Fades Barbershop — Nashville, TN's trusted barbershop. Expert haircuts, fades, beard grooming & more. Walk-ins welcome. Call (615) 892-2239.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a28;
+  --surface:#ffffff08;--surface-hover:#ffffff12;--border:#ffffff15;
+  --accent:#c8a55a;--accent2:#e8c87a;--accent-glow:#c8a55a40;
+  --red:#e94560;--white:#fff;--gray:#9ca3af;--light:#e5e7eb;
+  --font:'Inter',system-ui,sans-serif;--display:'Bebas Neue',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--light);line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+nav.scrolled{background:rgba(10,10,15,.95);height:60px}
+.nav-logo{font-family:var(--display);font-size:1.8rem;color:var(--white);letter-spacing:3px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--bg);padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:700;font-size:.85rem;letter-spacing:.5px;text-transform:uppercase;transition:all .3s}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://places.googleapis.com/v1/places/ChIJzQn3Yt1vZIgRsEW_TeXPrCc/photos/Ab43m-uJQaO3yONlc_-3uPGYrdTvOxEfOX7Df3U5McJZ1PgH0K0Hh_qf6Joo7691Mt0lU4Z4fnCkd1Dbv9H1qevM-LHXk1tIV0zfGR-xXlVltXGDIJZGbWiapBC3jsbId6n6SOH7sEAP-dYCU9Iwo0T2dRt1gpdIwMMwCT3yKBWnC3XSHbKhbU_8UYxs5qwIeGK_KP4m2djb8oyx5IcvNPbCL-fJzHegqdW36L9C7Ex-TpA6AdfD_Y-wcLj7Wgb3RJKKqZUrcybuz3XHB1WvAX3F_TC9EW-SxkAZQQO7y3sMuq7FtQ/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU') center/cover no-repeat;opacity:.35}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,transparent 30%,transparent 50%,var(--bg) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:8px 20px;margin-bottom:28px;font-size:.8rem;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.hero-badge .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--display);font-size:clamp(3rem,8vw,6rem);color:var(--white);letter-spacing:4px;line-height:1;margin-bottom:20px}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:1.15rem;color:var(--gray);max-width:500px;margin:0 auto 12px;font-weight:300}
+.hero-rating{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:.95rem;margin-bottom:32px}
+.hero-rating .stars{letter-spacing:2px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg);padding:16px 36px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .3s;letter-spacing:.3px}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-primary svg{width:18px;height:18px}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:16px 36px;border-radius:8px;text-decoration:none;font-weight:500;font-size:1rem;transition:all .3s}
+.btn-secondary:hover{background:var(--surface-hover);border-color:var(--accent)}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--gray);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.5;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+section{padding:100px 20px;position:relative}
+.inner{max-width:1100px;margin:0 auto}
+.section-label{display:inline-block;color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:2px;margin-bottom:16px}
+.section-desc{color:var(--gray);max-width:550px;font-size:1.02rem;margin-bottom:48px}
+.section-desc.center{margin-left:auto;margin-right:auto;text-align:center}
+.text-center{text-align:center}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:16px;overflow:hidden}
+.srv{background:var(--bg3);padding:40px 30px;position:relative;transition:all .4s}
+.srv::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.srv:hover{background:#1e1e30}
+.srv:hover::before{transform:scaleX(1)}
+.srv-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:1.4rem}
+.srv h3{color:var(--white);font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.srv p{color:var(--gray);font-size:.9rem;line-height:1.6}
+
+/* GALLERY */
+.gallery{padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.gallery img{width:100%;height:280px;object-fit:cover;display:block;filter:brightness(.85);transition:filter .4s}
+.gallery img:hover{filter:brightness(1)}
+.gallery-placeholder{height:280px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:.9rem}
+
+/* STATS */
+.experience{padding:80px 20px;background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.exp-stats{display:flex;gap:60px;justify-content:center;flex-wrap:wrap;text-align:center}
+.stat-num{font-family:var(--display);font-size:3.5rem;color:var(--accent);letter-spacing:2px}
+.stat-label{color:var(--gray);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* REVIEWS */
+.reviews-section{background:var(--bg2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.review-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s}
+.review-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.review-stars{color:var(--accent);font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.review-text{color:var(--light);font-size:.95rem;line-height:1.7;margin-bottom:20px}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--red));display:flex;align-items:center;justify-content:center;color:var(--bg);font-weight:700;font-size:.85rem}
+.review-name{color:var(--white);font-weight:600;font-size:.9rem}
+.review-date{color:var(--gray);font-size:.8rem}
+
+/* HOURS */
+.hours-section{background:var(--bg)}
+.hours-grid{max-width:500px;margin:0 auto}
+.hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+.hours-row .day{color:var(--light);font-weight:500}
+.hours-row .time{color:var(--accent);font-weight:500}
+
+/* LOCATION */
+.location{background:var(--bg2)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.loc-info{display:flex;flex-direction:column;gap:20px}
+.loc-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;transition:border-color .3s}
+.loc-item:hover{border-color:var(--accent)}
+.loc-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.loc-item h4{color:var(--white);font-size:.95rem;margin-bottom:4px}
+.loc-item p,.loc-item a{color:var(--gray);font-size:.9rem}
+.loc-item a{color:var(--accent);text-decoration:none;font-weight:500}
+.map-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:100%;min-height:380px}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:grayscale(.3)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:80px 20px}
+.cta-section .section-title{margin-bottom:12px}
+.cta-section p{color:var(--gray);max-width:500px;margin:0 auto 32px;font-size:1.05rem}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 20px;text-align:center}
+.footer-logo{font-family:var(--display);font-size:1.5rem;color:var(--white);letter-spacing:3px;margin-bottom:8px}
+.footer-logo span{color:var(--accent)}
+footer p{color:var(--gray);font-size:.85rem}
+footer .powered{margin-top:12px;font-size:.75rem;color:#555}
+
+@media(max-width:900px){
+  .services-grid,.gallery{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .exp-stats{gap:40px}
+  .map-wrap{min-height:300px}
+}
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .services-grid,.gallery{grid-template-columns:1fr}
+  .exp-stats{flex-direction:column;gap:24px}
+  .hero h1{font-size:2.8rem}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">Fresh Fades Barbershop</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#location">Location</a></li>
+  </ul>
+  <a href="tel:(615) 892-2239" class="nav-cta">Call Now</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Now Open &mdash; Walk-Ins Welcome</div>
+    <h1>Fresh Fades Barbershop</h1>
+    <p class="hero-sub">Premium cuts, clean fades, and expert grooming in Nashville, TN.</p>
+    
+    <div class="hero-rating">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>4.8 stars (332 reviews)</span>
+    </div>
+    
+    <div class="hero-btns">
+      
+      <a href="tel:(615) 892-2239" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (615) 892-2239
+      </a>
+      
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll &#8595;</div>
+</header>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-desc center">Expert grooming for the modern man. Every cut is personalized to your style.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv"><div class="srv-icon">&#9986;&#65039;</div><h3>Haircuts</h3><p>Classic cuts, modern styles, tapers, and everything in between. Consultation included with every cut.</p></div>
+      <div class="srv"><div class="srv-icon">&#128170;</div><h3>Skin Fades</h3><p>Clean, sharp fades that blend perfectly. Low, mid, or high &mdash; we nail exactly the look you want.</p></div>
+      <div class="srv"><div class="srv-icon">&#129492;</div><h3>Beard Grooming</h3><p>Shape-ups, line-ups, trims, and full beard sculpting to keep you looking your best.</p></div>
+      <div class="srv"><div class="srv-icon">&#127809;</div><h3>Hot Towel Shaves</h3><p>The classic straight-razor experience. Hot towel, lather, precision shave. Leave feeling brand new.</p></div>
+      <div class="srv"><div class="srv-icon">&#128103;</div><h3>Kids Cuts</h3><p>Patient, friendly service for the young ones. We make it fun &mdash; no tears, just clean cuts.</p></div>
+      <div class="srv"><div class="srv-icon">&#10024;</div><h3>Hair Designs</h3><p>Custom razor designs, patterns, and creative work. Express your unique style with precision artistry.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL PHOTOS FROM GOOGLE -->
+
+<div class="gallery">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJzQn3Yt1vZIgRsEW_TeXPrCc/photos/Ab43m-uJQaO3yONlc_-3uPGYrdTvOxEfOX7Df3U5McJZ1PgH0K0Hh_qf6Joo7691Mt0lU4Z4fnCkd1Dbv9H1qevM-LHXk1tIV0zfGR-xXlVltXGDIJZGbWiapBC3jsbId6n6SOH7sEAP-dYCU9Iwo0T2dRt1gpdIwMMwCT3yKBWnC3XSHbKhbU_8UYxs5qwIeGK_KP4m2djb8oyx5IcvNPbCL-fJzHegqdW36L9C7Ex-TpA6AdfD_Y-wcLj7Wgb3RJKKqZUrcybuz3XHB1WvAX3F_TC9EW-SxkAZQQO7y3sMuq7FtQ/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Fresh Fades Barbershop - Photo 1" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJzQn3Yt1vZIgRsEW_TeXPrCc/photos/Ab43m-uwoS9aKjB831KdFUoSgBpaCjQUh2VJ1PYcvuTCZb9g1U9qGyD4ZQ9sjh5mBPG-lfLv8x6Hy_e00-QWUxeFvjAbAS4tfb6M1f-AsoJUZxFSgr1Rew6ee5AwQSnkIx3JuAtMCccdx8MvH9ioVVDfhapBJPkxXPXW7Xls_AIBeGLslWAvzmFPFvusXC78qAb_ie_ENoJuJRQNsva-uEF0bTH78vLJj5Ew5LHecye7hCiQe09Gw353F271FbPWGawHEEmXX3mmK0kA-jCrfTiu1kJM5poQS55lddRGYQ5spo9BvURyeWGy9Mx822_UQs001w9o3ALSaCmlC8CUrYsY8nFtI7nBP-gjx0TnNuqlcd_bJfXbldREw1GtCYhx2Ln5ittKyVbxG40EHxz3vDXx-atuJ6OXuXZjEG2Prva-0dAmOrKJv60HKSHXmTcEvjY2/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Fresh Fades Barbershop - Photo 2" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJzQn3Yt1vZIgRsEW_TeXPrCc/photos/Ab43m-uASMZwqeMRx4O9xsHB99jSPHbwcM9pe2iHMUQNseURBktTeNf1aZKRjSac8aONzvVjeBiGdeXgBlZIAQuWZ2R7zjkhBZzQfljkj-jGJpoDkRP06eDtt-MUG5dXwi2Sw2CwW8Im-Zq-8A7woxS99aiKXEqUeVsuK4-pbuMoIfNCsGrKaMExgikLPAd4FtDTlzrvZdBC2jmzD8xeTAMEEFVZHFii29NGSDuP956GokIMe3qkDohFg_WGzbYvdME-M2fzf5iA_lLrdFCwwxHBzxM8Zo7SnS7-9Vzw9gQzVBLFLlXpaLzzriLgKXi_bNMoRu5xMxkA9UBBeGkAZTYoQVhuLBllLmQ08_1w0LxAEyK1JTAdkEp5q1lN4Di623fmSyhmeCbshJnDHc3s74m5p3lFvCNJp43gGmCucOZnXgbsLZzZ/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Fresh Fades Barbershop - Photo 3" loading="lazy">
+  
+  
+</div>
+
+
+<!-- STATS -->
+<div class="experience">
+  <div class="exp-stats">
+    <div><div class="stat-num">4.8</div><div class="stat-label">Google Rating</div></div>
+    <div><div class="stat-num">332+</div><div class="stat-label">Reviews</div></div>
+    <div><div class="stat-num">6</div><div class="stat-label">Days a Week</div></div>
+    <div><div class="stat-num">&#10003;</div><div class="stat-label">Walk-Ins Welcome</div></div>
+  </div>
+</div>
+
+<!-- REAL GOOGLE REVIEWS -->
+
+<section class="reviews-section" id="reviews">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">What People Say</span>
+      <h2 class="section-title">Real Reviews from Real Customers</h2>
+      <p class="section-desc center">Straight from Google &mdash; here's what Nashville, TN thinks of us.</p>
+    </div>
+    <div class="reviews-grid">
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"From the first time over a year ago up to now, Fresh Fades has delivered not only a great cut but welcoming experience. Kovan is very professional and skilled. It doesn’t take him long to give you what you ask for. As a female , I feel comfortable and safe. The attention to detail and professionalism is unmatched."</p>
+        <div class="review-author">
+          <div class="review-avatar">D</div>
+          <div>
+            <div class="review-name">D. Brown</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"I’ve been to Fresh Fades before, and every time they deliver! Today was a perfect example—I made the mistake of going to another shop because I was short on time (won’t name names), but I left disappointed with the cut. On my way home, I stopped by Fresh Fades and Kovan fixed me up with a clean, sharp skin fade that was exactly what I wanted.
+
+If you’re looking for a skin fade, this is hands-down the place to go. I’ve been getting them for years, and these guys truly know what they’re doing. The attention to detail and professionalism is unmatched.
+
+Fresh Fades never disappoints—this is my go-to spot from now on."</p>
+        <div class="review-author">
+          <div class="review-avatar">K</div>
+          <div>
+            <div class="review-name">Kevin Ditty</div>
+            <div class="review-date">8 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Kovan and team are fantastic barbers! Clean lines and they always aim to give you the best cut possible. Reasonably priced, they are my number 1 go to."</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div>
+            <div class="review-name">Val Lupescu</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Such a professional barber! I’m so impressed with the haircut, I’ll definitely be coming back
+Highly recommended."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Mustafa Beykal</div>
+            <div class="review-date">7 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"When I first moved here, 3 years ago. I was going to try a few barbershops out until I found one that I liked. I went here my first stop and never went anywhere else. I trust Kovan to always give me a crisp fade. So much I dont even look in the mirror before I leave. The price ($30) is extremely reasonable for the quality of cut you get. Especially, now a days when barbors are charging a ridiculous amount."</p>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-name">Christopher Sulcer</div>
+            <div class="review-date">6 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- REAL HOURS FROM GOOGLE -->
+
+<section class="hours-section" id="hours">
+  <div class="inner text-center">
+    <span class="section-label">Open Hours</span>
+    <h2 class="section-title">When to Visit</h2>
+    <p class="section-desc center">Plan your visit around our schedule.</p>
+    <div class="hours-grid">
+      
+      
+      <div class="hours-row">
+        <span class="day">Monday</span>
+        <span class="time">9:00 AM – 7:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Tuesday</span>
+        <span class="time">9:00 AM – 7:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Wednesday</span>
+        <span class="time">9:00 AM – 7:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Thursday</span>
+        <span class="time">3:00 – 7:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Friday</span>
+        <span class="time">9:00 AM – 7:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Saturday</span>
+        <span class="time">9:00 AM – 7:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Sunday</span>
+        <span class="time">9:00 AM – 3:00 PM</span>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="inner">
+    <div style="margin-bottom:48px">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Visit Fresh Fades Barbershop</h2>
+      <p class="section-desc">Walk in or call ahead. We're ready when you are.</p>
+    </div>
+    <div class="location-grid">
+      <div class="loc-info">
+        
+        <div class="loc-item"><div class="loc-icon">&#128205;</div><div><h4>Address</h4><p>5303 Nolensville Pk, Nashville, TN 37211, USA</p></div></div>
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#128222;</div><div><h4>Phone</h4><a href="tel:(615) 892-2239">(615) 892-2239</a></div></div>
+        
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#127760;</div><div><h4>Google Maps</h4><a href="https://maps.google.com/?cid=2858888447232263600&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank">View on Google Maps</a></div></div>
+        
+      </div>
+      
+      <div class="map-wrap">
+        <iframe loading="lazy" src="https://maps.google.com/maps?q=5303+Nolensville+Pk%2C+Nashville%2C+TN+37211%2C+USA&output=embed"></iframe>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="inner">
+    <span class="section-label">Ready?</span>
+    <h2 class="section-title">Book Your Next Cut</h2>
+    <p>Walk in anytime or call ahead to skip the wait.</p>
+    
+    <a href="tel:(615) 892-2239" class="btn-primary" style="font-size:1.1rem;padding:18px 44px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call (615) 892-2239
+    </a>
+    
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Fresh Fades Barbershop</div>
+  <p>&copy; 2026 Fresh Fades Barbershop. All rights reserved.</p>
+  <p class="powered">Website by Nova Web Solutions</p>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})
+},{threshold:.1});
+document.querySelectorAll('.srv,.review-card,.loc-item,.hours-row').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
