@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maytham Mobile Barber - Houston VIP Mobile Barber — Premium Barbershop in Houston, TX</title>
+<meta name="description" content="Maytham Mobile Barber - Houston VIP Mobile Barber — Houston, TX's trusted barbershop. Expert haircuts, fades, beard grooming & more. Walk-ins welcome. Call (281) 857-2426.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a28;
+  --surface:#ffffff08;--surface-hover:#ffffff12;--border:#ffffff15;
+  --accent:#c8a55a;--accent2:#e8c87a;--accent-glow:#c8a55a40;
+  --red:#e94560;--white:#fff;--gray:#9ca3af;--light:#e5e7eb;
+  --font:'Inter',system-ui,sans-serif;--display:'Bebas Neue',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--light);line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+nav.scrolled{background:rgba(10,10,15,.95);height:60px}
+.nav-logo{font-family:var(--display);font-size:1.8rem;color:var(--white);letter-spacing:3px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--bg);padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:700;font-size:.85rem;letter-spacing:.5px;text-transform:uppercase;transition:all .3s}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://places.googleapis.com/v1/places/ChIJZ6h9I0bdQIYRanY5TEWXSSs/photos/Ab43m-tQuHHlYEXRQc_FPYmzv4kufP1AaklzNQ61NEtc0shwRHv-0Wcln90oiiqVhOy8cIxQN6Jv0hX14jGynt---vJ0KG5c8IMnogyFjQVxKHLoa8PIfrNo6oaKgBegE8plTfVB6obfoAywe83kzr5ZpQBOpTOBII-LZ-kCZSN4s9L-FnsxHjOqu890NqQWwld5748AToV8psXp4wQ-JVMfgMUetFi1JX4bLOPJJp1FV8fXg1ePvlARGWFHWxBPa6Rawqu083Kxme96H3Xe_Hrrln-cZtgOWaz4A4sHU3URnwdkcA/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU') center/cover no-repeat;opacity:.35}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,transparent 30%,transparent 50%,var(--bg) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:8px 20px;margin-bottom:28px;font-size:.8rem;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.hero-badge .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--display);font-size:clamp(3rem,8vw,6rem);color:var(--white);letter-spacing:4px;line-height:1;margin-bottom:20px}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:1.15rem;color:var(--gray);max-width:500px;margin:0 auto 12px;font-weight:300}
+.hero-rating{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:.95rem;margin-bottom:32px}
+.hero-rating .stars{letter-spacing:2px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg);padding:16px 36px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .3s;letter-spacing:.3px}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-primary svg{width:18px;height:18px}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:16px 36px;border-radius:8px;text-decoration:none;font-weight:500;font-size:1rem;transition:all .3s}
+.btn-secondary:hover{background:var(--surface-hover);border-color:var(--accent)}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--gray);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.5;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+section{padding:100px 20px;position:relative}
+.inner{max-width:1100px;margin:0 auto}
+.section-label{display:inline-block;color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:2px;margin-bottom:16px}
+.section-desc{color:var(--gray);max-width:550px;font-size:1.02rem;margin-bottom:48px}
+.section-desc.center{margin-left:auto;margin-right:auto;text-align:center}
+.text-center{text-align:center}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:16px;overflow:hidden}
+.srv{background:var(--bg3);padding:40px 30px;position:relative;transition:all .4s}
+.srv::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.srv:hover{background:#1e1e30}
+.srv:hover::before{transform:scaleX(1)}
+.srv-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:1.4rem}
+.srv h3{color:var(--white);font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.srv p{color:var(--gray);font-size:.9rem;line-height:1.6}
+
+/* GALLERY */
+.gallery{padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.gallery img{width:100%;height:280px;object-fit:cover;display:block;filter:brightness(.85);transition:filter .4s}
+.gallery img:hover{filter:brightness(1)}
+.gallery-placeholder{height:280px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:.9rem}
+
+/* STATS */
+.experience{padding:80px 20px;background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.exp-stats{display:flex;gap:60px;justify-content:center;flex-wrap:wrap;text-align:center}
+.stat-num{font-family:var(--display);font-size:3.5rem;color:var(--accent);letter-spacing:2px}
+.stat-label{color:var(--gray);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* REVIEWS */
+.reviews-section{background:var(--bg2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.review-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s}
+.review-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.review-stars{color:var(--accent);font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.review-text{color:var(--light);font-size:.95rem;line-height:1.7;margin-bottom:20px}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--red));display:flex;align-items:center;justify-content:center;color:var(--bg);font-weight:700;font-size:.85rem}
+.review-name{color:var(--white);font-weight:600;font-size:.9rem}
+.review-date{color:var(--gray);font-size:.8rem}
+
+/* HOURS */
+.hours-section{background:var(--bg)}
+.hours-grid{max-width:500px;margin:0 auto}
+.hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+.hours-row .day{color:var(--light);font-weight:500}
+.hours-row .time{color:var(--accent);font-weight:500}
+
+/* LOCATION */
+.location{background:var(--bg2)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.loc-info{display:flex;flex-direction:column;gap:20px}
+.loc-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;transition:border-color .3s}
+.loc-item:hover{border-color:var(--accent)}
+.loc-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.loc-item h4{color:var(--white);font-size:.95rem;margin-bottom:4px}
+.loc-item p,.loc-item a{color:var(--gray);font-size:.9rem}
+.loc-item a{color:var(--accent);text-decoration:none;font-weight:500}
+.map-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:100%;min-height:380px}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:grayscale(.3)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:80px 20px}
+.cta-section .section-title{margin-bottom:12px}
+.cta-section p{color:var(--gray);max-width:500px;margin:0 auto 32px;font-size:1.05rem}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 20px;text-align:center}
+.footer-logo{font-family:var(--display);font-size:1.5rem;color:var(--white);letter-spacing:3px;margin-bottom:8px}
+.footer-logo span{color:var(--accent)}
+footer p{color:var(--gray);font-size:.85rem}
+footer .powered{margin-top:12px;font-size:.75rem;color:#555}
+
+@media(max-width:900px){
+  .services-grid,.gallery{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .exp-stats{gap:40px}
+  .map-wrap{min-height:300px}
+}
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .services-grid,.gallery{grid-template-columns:1fr}
+  .exp-stats{flex-direction:column;gap:24px}
+  .hero h1{font-size:2.8rem}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">Maytham Mobile Barber - Houston VIP Mobile Barber</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#location">Location</a></li>
+  </ul>
+  <a href="tel:(281) 857-2426" class="nav-cta">Call Now</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Now Open &mdash; Walk-Ins Welcome</div>
+    <h1>Maytham Mobile Barber - Houston VIP Mobile Barber</h1>
+    <p class="hero-sub">Premium cuts, clean fades, and expert grooming in Houston, TX.</p>
+    
+    <div class="hero-rating">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>5 stars (212 reviews)</span>
+    </div>
+    
+    <div class="hero-btns">
+      
+      <a href="tel:(281) 857-2426" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (281) 857-2426
+      </a>
+      
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll &#8595;</div>
+</header>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-desc center">Expert grooming for the modern man. Every cut is personalized to your style.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv"><div class="srv-icon">&#9986;&#65039;</div><h3>Haircuts</h3><p>Classic cuts, modern styles, tapers, and everything in between. Consultation included with every cut.</p></div>
+      <div class="srv"><div class="srv-icon">&#128170;</div><h3>Skin Fades</h3><p>Clean, sharp fades that blend perfectly. Low, mid, or high &mdash; we nail exactly the look you want.</p></div>
+      <div class="srv"><div class="srv-icon">&#129492;</div><h3>Beard Grooming</h3><p>Shape-ups, line-ups, trims, and full beard sculpting to keep you looking your best.</p></div>
+      <div class="srv"><div class="srv-icon">&#127809;</div><h3>Hot Towel Shaves</h3><p>The classic straight-razor experience. Hot towel, lather, precision shave. Leave feeling brand new.</p></div>
+      <div class="srv"><div class="srv-icon">&#128103;</div><h3>Kids Cuts</h3><p>Patient, friendly service for the young ones. We make it fun &mdash; no tears, just clean cuts.</p></div>
+      <div class="srv"><div class="srv-icon">&#10024;</div><h3>Hair Designs</h3><p>Custom razor designs, patterns, and creative work. Express your unique style with precision artistry.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL PHOTOS FROM GOOGLE -->
+
+<div class="gallery">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJZ6h9I0bdQIYRanY5TEWXSSs/photos/Ab43m-tQuHHlYEXRQc_FPYmzv4kufP1AaklzNQ61NEtc0shwRHv-0Wcln90oiiqVhOy8cIxQN6Jv0hX14jGynt---vJ0KG5c8IMnogyFjQVxKHLoa8PIfrNo6oaKgBegE8plTfVB6obfoAywe83kzr5ZpQBOpTOBII-LZ-kCZSN4s9L-FnsxHjOqu890NqQWwld5748AToV8psXp4wQ-JVMfgMUetFi1JX4bLOPJJp1FV8fXg1ePvlARGWFHWxBPa6Rawqu083Kxme96H3Xe_Hrrln-cZtgOWaz4A4sHU3URnwdkcA/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Maytham Mobile Barber - Houston VIP Mobile Barber - Photo 1" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJZ6h9I0bdQIYRanY5TEWXSSs/photos/Ab43m-vasWOWIjc4HbUkdIc7fnz_yt0UGwdkja_BbFHZbKY9kBakKJHIMMAvE1te6EVehNeKxJGt53nW6aY41SLdCS1zp5-9IqbflpW0ji_W_DLzScSqjgSnYrXZZNLG5TVQb1j-3DlGeEcPMUnr7T7wboUykfCnuHVsN8DPsvtGlVCJCSerKtiYeHm2DJ0VZK_VrBuy5963PjPzcdSWhqRXHjNMcYIIMzQz3jV-QRu2b3ZwGpczqgc_33sqtQwTd5JojzzgBrf5DZRAplgBNf4Fqn7sufOs2l9Ne85dEUUlsyzV1Q/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Maytham Mobile Barber - Houston VIP Mobile Barber - Photo 2" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJZ6h9I0bdQIYRanY5TEWXSSs/photos/Ab43m-se0Zj9EnGhR-nKkFs3sZ7cG4zGUXOHu--eNh8TYO3v-fYunk53F-hGLO9X7nstdCcDtg-bwR4krif7CujcXwDOOADBJG6pol9u0ZGfLlftilj0qbeK4kEWnxx-umDWP8PhISOaHYvTpJYSmCAaX0ubaeXRKtCVW2eQZEZwZBgMQ5ezVfmjF2C9HeAPbOpymzpHHKhNV_HKcKj9-t6bftnq5H5QIU80WnDYDcE0iAAlDk9er2woUg6wxZQJRxv5YlJAb7wUlPfS4D_45L6syNn0SJCqkVKIWjk4YH_QosoSVg/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Maytham Mobile Barber - Houston VIP Mobile Barber - Photo 3" loading="lazy">
+  
+  
+</div>
+
+
+<!-- STATS -->
+<div class="experience">
+  <div class="exp-stats">
+    <div><div class="stat-num">5</div><div class="stat-label">Google Rating</div></div>
+    <div><div class="stat-num">212+</div><div class="stat-label">Reviews</div></div>
+    <div><div class="stat-num">6</div><div class="stat-label">Days a Week</div></div>
+    <div><div class="stat-num">&#10003;</div><div class="stat-label">Walk-Ins Welcome</div></div>
+  </div>
+</div>
+
+<!-- REAL GOOGLE REVIEWS -->
+
+<section class="reviews-section" id="reviews">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">What People Say</span>
+      <h2 class="section-title">Real Reviews from Real Customers</h2>
+      <p class="section-desc center">Straight from Google &mdash; here's what Houston, TX thinks of us.</p>
+    </div>
+    <div class="reviews-grid">
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Excellent Service!
+Maytham is one of the best barbers I’ve had. He’s professional, punctual, and really takes his time to make sure every cut is clean and fresh. The fact that he comes to you makes it super convenient. Great conversation, great skills, and great vibes — I’ll definitely keep booking with him!"</p>
+        <div class="review-author">
+          <div class="review-avatar">H</div>
+          <div>
+            <div class="review-name">Hassan Albayati</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Maytham is an amazing mobile barber — professional, clean, and always on time. He brings the barbershop experience right to your door with great attention to detail. The fade and lineup were perfect, and he made sure everything looked sharp before finishing. Super friendly and easy to talk to. Highly recommend if you want quality service and convenience!"</p>
+        <div class="review-author">
+          <div class="review-avatar">H</div>
+          <div>
+            <div class="review-name">hamoodi ronaldo</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"My experience with Maytham was exceptional. He went out of his way, over and above for us and we were very pleased with every aspect of his service. I wish I could give 6 stars."</p>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">Judith Catropa</div>
+            <div class="review-date">3 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"First time with Ali, I was a last minute walk-in and he treated me like I guest sent his own home. Ali is the GOAT, y'all don't sleep on him. Call him up and request an appointment ASAP. Because, these cuts are immaculate.
+Big ups Ali, keep up the good work brother.
+Thank you, Truly.
+Until next time brother.
+🙏"</p>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">Josephe Trevi</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Maytham delivered an outstanding haircut and beard trim with exceptional skill and attention to detail, making the entire mobile barber experience incredibly convenient and professional. His expertise and friendly service have earned him a loyal customer - I wouldn’t trust anyone else with my grooming needs.​​​​​​​​​​​​​​​​"</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">ahmed Salim</div>
+            <div class="review-date">7 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- REAL HOURS FROM GOOGLE -->
+
+<section class="hours-section" id="hours">
+  <div class="inner text-center">
+    <span class="section-label">Open Hours</span>
+    <h2 class="section-title">When to Visit</h2>
+    <p class="section-desc center">Plan your visit around our schedule.</p>
+    <div class="hours-grid">
+      
+      
+      <div class="hours-row">
+        <span class="day">Monday</span>
+        <span class="time">Open 24 hours</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Tuesday</span>
+        <span class="time">Open 24 hours</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Wednesday</span>
+        <span class="time">Open 24 hours</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Thursday</span>
+        <span class="time">Open 24 hours</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Friday</span>
+        <span class="time">Open 24 hours</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Saturday</span>
+        <span class="time">Open 24 hours</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Sunday</span>
+        <span class="time">Open 24 hours</span>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="inner">
+    <div style="margin-bottom:48px">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Visit Maytham Mobile Barber - Houston VIP Mobile Barber</h2>
+      <p class="section-desc">Walk in or call ahead. We're ready when you are.</p>
+    </div>
+    <div class="location-grid">
+      <div class="loc-info">
+        
+        <div class="loc-item"><div class="loc-icon">&#128205;</div><div><h4>Address</h4><p>3002 Fondren Rd, Houston, TX 77063, USA</p></div></div>
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#128222;</div><div><h4>Phone</h4><a href="tel:(281) 857-2426">(281) 857-2426</a></div></div>
+        
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#127760;</div><div><h4>Google Maps</h4><a href="https://maps.google.com/?cid=3119190540818151018&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank">View on Google Maps</a></div></div>
+        
+      </div>
+      
+      <div class="map-wrap">
+        <iframe loading="lazy" src="https://maps.google.com/maps?q=3002+Fondren+Rd%2C+Houston%2C+TX+77063%2C+USA&output=embed"></iframe>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="inner">
+    <span class="section-label">Ready?</span>
+    <h2 class="section-title">Book Your Next Cut</h2>
+    <p>Walk in anytime or call ahead to skip the wait.</p>
+    
+    <a href="tel:(281) 857-2426" class="btn-primary" style="font-size:1.1rem;padding:18px 44px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call (281) 857-2426
+    </a>
+    
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Maytham Mobile Barber - Houston VIP Mobile Barber</div>
+  <p>&copy; 2026 Maytham Mobile Barber - Houston VIP Mobile Barber. All rights reserved.</p>
+  <p class="powered">Website by Nova Web Solutions</p>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})
+},{threshold:.1});
+document.querySelectorAll('.srv,.review-card,.loc-item,.hours-row').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
