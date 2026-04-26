@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torrent Salon — salon in Mobile, AL</title>
+<meta name="description" content="Torrent Salon — Premium salon in Mobile, AL. Expert styling, beauty, wellness. Call (251) 343-8106.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0e080f;--bg2:#160e18;--bg3:#1e1422;
+  --surface:#ffffff08;--surface-hover:#ffffff12;--border:#ffffff15;
+  --accent:#d4789c;--accent2:#e8a0bf;--accent-glow:#d4789c40;
+  --purple:#4a1942;--purple-light:#6b2fa0;
+  --white:#fff;--gray:#a89db0;--light:#e5e0eb;
+  --font:'Nunito',system-ui,sans-serif;--display:'Cormorant Garamond',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--light);line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,8,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+nav.scrolled{background:rgba(14,8,15,.95);height:60px}
+.nav-logo{font-family:var(--display);font-size:1.6rem;color:var(--white);font-weight:600}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--bg);padding:10px 24px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.85rem;transition:all .3s}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://places.googleapis.com/v1/places/ChIJc1hFcWJNmogRTxAD_ZTEwPk/photos/Ab43m-v-E19VXtVY1uLy8-LC2FnWFlfs0JFrDe-oQqImjmTufjGmKJ_HXodA2g8zuZcygra1RYrSPY1rg0GDNK2UCvcJ3haCWH1uClz5J7eptRmN2yc4AEH3aP0vJg7JHhZKNt0I9783gYnCcp6ZykWbko-sYxoyjnOVMGQq_PJSb_DVgLH2gK10dqrKv7HKIM0YXR35VHVOqwxqSVePCp0314G1kKQoiNaHqAwtHqorNUSnkt5sMPxqXSu6DV8HOFgOybMwpYCK2Ejs2IMETPX2R03X7XNAR_bqyhI7L5gpLr6ktz5BU3WvnKuvBF6L17Ra4v-0MSPfCLOJfAZ5o9JQGQNhbtkBA5yuQNtJiZ4tl30cu06mvSbTssm8LHABmle0eO4ZrDVOQ7M6VntlLjshTALBLEu7QKh9NAhJxZ9eYY4brQ/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU') center/cover no-repeat;opacity:.25}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,transparent 30%,transparent 50%,var(--bg) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:8px 20px;margin-bottom:28px;font-size:.8rem;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.hero-badge .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--display);font-size:clamp(3rem,8vw,5.5rem);color:var(--white);line-height:1.05;margin-bottom:20px;font-weight:600}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:1.15rem;color:var(--gray);max-width:520px;margin:0 auto 12px;font-weight:300}
+.hero-rating{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:.95rem;margin-bottom:32px}
+.hero-rating .stars{letter-spacing:2px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .3s}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-primary svg{width:18px;height:18px}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:500;font-size:1rem;transition:all .3s}
+.btn-secondary:hover{background:var(--surface-hover);border-color:var(--accent)}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--gray);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.5;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+section{padding:100px 20px;position:relative}
+.inner{max-width:1100px;margin:0 auto}
+.section-label{display:inline-block;color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:16px}
+.section-desc{color:var(--gray);max-width:550px;font-size:1.02rem;margin-bottom:48px}
+.section-desc.center{margin-left:auto;margin-right:auto;text-align:center}
+.text-center{text-align:center}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:36px 28px;text-align:center;transition:all .4s}
+.srv:hover{border-color:var(--accent);transform:translateY(-6px)}
+.srv-icon{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple-light));display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.4rem}
+.srv h3{color:var(--white);font-size:1.05rem;font-weight:600;margin-bottom:8px}
+.srv p{color:var(--gray);font-size:.9rem;line-height:1.6}
+
+/* GALLERY */
+.gallery{padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.gallery img{width:100%;height:280px;object-fit:cover;display:block;filter:brightness(.85);transition:filter .4s}
+.gallery img:hover{filter:brightness(1)}
+.gallery-placeholder{height:280px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:.9rem}
+
+/* STATS */
+.experience{padding:80px 20px;background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.exp-stats{display:flex;gap:60px;justify-content:center;flex-wrap:wrap;text-align:center}
+.stat-num{font-family:var(--display);font-size:3.5rem;color:var(--accent)}
+.stat-label{color:var(--gray);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* REVIEWS */
+.reviews-section{background:var(--bg2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.review-card{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s}
+.review-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.review-stars{color:var(--accent);font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.review-text{color:var(--light);font-size:.95rem;line-height:1.7;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.85rem}
+.review-name{color:var(--white);font-weight:600;font-size:.9rem}
+.review-date{color:var(--gray);font-size:.8rem}
+
+/* HOURS */
+.hours-section{background:var(--bg)}
+.hours-grid{max-width:500px;margin:0 auto}
+.hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+.hours-row .day{color:var(--light);font-weight:500}
+.hours-row .time{color:var(--accent);font-weight:500}
+
+/* LOCATION */
+.location{background:var(--bg2)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.loc-info{display:flex;flex-direction:column;gap:20px}
+.loc-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--bg3);border:1px solid var(--border);border-radius:16px;transition:border-color .3s}
+.loc-item:hover{border-color:var(--accent)}
+.loc-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.loc-item h4{color:var(--white);font-size:.95rem;margin-bottom:4px}
+.loc-item p,.loc-item a{color:var(--gray);font-size:.9rem}
+.loc-item a{color:var(--accent);text-decoration:none;font-weight:500}
+.map-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:100%;min-height:380px}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:grayscale(.2) hue-rotate(20deg)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:80px 20px}
+.cta-section .section-title{margin-bottom:12px}
+.cta-section p{color:var(--gray);max-width:500px;margin:0 auto 32px;font-size:1.05rem}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 20px;text-align:center}
+.footer-logo{font-family:var(--display);font-size:1.5rem;color:var(--white);margin-bottom:8px}
+.footer-logo span{color:var(--accent)}
+footer p{color:var(--gray);font-size:.85rem}
+footer .powered{margin-top:12px;font-size:.75rem;color:#555}
+
+@media(max-width:900px){
+  .services-grid,.gallery{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .exp-stats{gap:40px}
+  .map-wrap{min-height:300px}
+}
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .services-grid,.gallery{grid-template-columns:1fr}
+  .exp-stats{flex-direction:column;gap:24px}
+  .hero h1{font-size:2.8rem}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">Torrent Salon</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#location">Visit Us</a></li>
+  </ul>
+  <a href="tel:(251) 343-8106" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Now Booking &mdash; Walk-Ins Welcome</div>
+    <h1>Torrent Salon</h1>
+    <p class="hero-sub">Your beauty destination in Mobile, AL. Expert styling, relaxing atmosphere, stunning results.</p>
+    
+    <div class="hero-rating">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>4.5 stars (20 reviews)</span>
+    </div>
+    
+    <div class="hero-btns">
+      
+      <a href="tel:(251) 343-8106" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Book Now: (251) 343-8106
+      </a>
+      
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll &#8595;</div>
+</header>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-desc center">Expert beauty and wellness treatments tailored to you.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv"><div class="srv-icon">&#128135;</div><h3>Haircuts & Styling</h3><p>Precision cuts and custom styling for every hair type and texture.</p></div>
+      <div class="srv"><div class="srv-icon">&#127912;</div><h3>Color & Highlights</h3><p>Vibrant color, natural highlights, balayage, ombre, and more.</p></div>
+      <div class="srv"><div class="srv-icon">&#128133;</div><h3>Nail Services</h3><p>Manicures, pedicures, gel, acrylics, and custom nail art.</p></div>
+      <div class="srv"><div class="srv-icon">&#127800;</div><h3>Facials & Skincare</h3><p>Rejuvenating treatments for a healthy, radiant, glowing complexion.</p></div>
+      <div class="srv"><div class="srv-icon">&#10024;</div><h3>Waxing</h3><p>Smooth results with gentle waxing services for face and body.</p></div>
+      <div class="srv"><div class="srv-icon">&#128134;</div><h3>Blowouts & Updos</h3><p>Perfect for special occasions, events, or everyday glam.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL PHOTOS FROM GOOGLE -->
+
+<div class="gallery">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJc1hFcWJNmogRTxAD_ZTEwPk/photos/Ab43m-v-E19VXtVY1uLy8-LC2FnWFlfs0JFrDe-oQqImjmTufjGmKJ_HXodA2g8zuZcygra1RYrSPY1rg0GDNK2UCvcJ3haCWH1uClz5J7eptRmN2yc4AEH3aP0vJg7JHhZKNt0I9783gYnCcp6ZykWbko-sYxoyjnOVMGQq_PJSb_DVgLH2gK10dqrKv7HKIM0YXR35VHVOqwxqSVePCp0314G1kKQoiNaHqAwtHqorNUSnkt5sMPxqXSu6DV8HOFgOybMwpYCK2Ejs2IMETPX2R03X7XNAR_bqyhI7L5gpLr6ktz5BU3WvnKuvBF6L17Ra4v-0MSPfCLOJfAZ5o9JQGQNhbtkBA5yuQNtJiZ4tl30cu06mvSbTssm8LHABmle0eO4ZrDVOQ7M6VntlLjshTALBLEu7QKh9NAhJxZ9eYY4brQ/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Torrent Salon - Photo 1" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJc1hFcWJNmogRTxAD_ZTEwPk/photos/Ab43m-sAy178WubJuT0x0ZE1QYCbJ7ShDfr5pMDItinkOC_mneMdNH9idcoXNcZRtEFfq6K9oEqNDK9zD7Lb-3ccQFcJoiEtwGprxDdnk4-CKbzMMaUUxBugBjqqDtLrZ-SrpTYHvzSnTd-fQ1pFVcXT9l0piRIEUUg8ib1Fx_UOBCqk-_uNBia5LE5AThQmmwMQmXAHZrNRlZ17OKJorIVTYHiHZb6uyCFi-IScM4CNufpoqHqmOTkCQ9aHutSeuznj5q5-JxE68rNF3vUppdcPYl_29NRDxedaiQeGP6KDI0FV2m9krETlN_by0YKfsjiRXWSqJJ22cle34YL_NfuOczZBbUjFy8EPohf-H9EImbiUgLQ1eKSDVHW3zKYWnArr2hns0U05bnrln95hjsKigLvusUNoV_9dkscnajUkyQN1RG4/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Torrent Salon - Photo 2" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJc1hFcWJNmogRTxAD_ZTEwPk/photos/Ab43m-vziuFwt2NmO5i6DF4MOBtozpARWFw0mDAy-lAGa6OBJ2VzKzgdpiS5tEDsM_fDvX9F4JG0e1oQiA1Q7snGTwqKarlcae8yR-njBbDC0uy5WQahcwjKd1Fx18Hm7ei3ujDHdTsCUOu4W9e9KFvN4rT6wdd9VE1euZhU9bEJe8HHm3j4j-nzSdLbfE2nu6hoIwC4UAQRnk_D-s6Ih9WXV8hufl-0sOlwk9M6SBtigvwlNSNZdsWZZlIt8m4Hbxz1EA0R_yqRnEU_AJuK2nvxYMwyJG2huMg-_DtMAeXi_sy4S3kYIzhiyPB46rBwkdSGpL5wzxlE_9mQLu6mkjXfhQq6XsqNkZLi_pvGGc9eYVA0kjYctRjPerOCudCBJGGaUCZXkoFm9JmWiGQExMluUMuIZ_xCSzQoTjHrpZ_kzeMukb71/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Torrent Salon - Photo 3" loading="lazy">
+  
+  
+</div>
+
+
+<!-- STATS -->
+<div class="experience">
+  <div class="exp-stats">
+    <div><div class="stat-num">4.5</div><div class="stat-label">Google Rating</div></div>
+    <div><div class="stat-num">20+</div><div class="stat-label">Happy Clients</div></div>
+    <div><div class="stat-num">6+</div><div class="stat-label">Services</div></div>
+    <div><div class="stat-num">&#10003;</div><div class="stat-label">Walk-Ins Welcome</div></div>
+  </div>
+</div>
+
+<!-- REAL GOOGLE REVIEWS -->
+
+<section class="reviews-section" id="reviews">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">Client Love</span>
+      <h2 class="section-title">Real Reviews from Real Clients</h2>
+      <p class="section-desc center">Straight from Google &mdash; see why Mobile, AL trusts us with their beauty.</p>
+    </div>
+    <div class="reviews-grid">
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Christina is amazing with color. I’ve been going to her for years. The salon is in a great location. I had a pedicure from Shyla and she did a great job. -Shannon"</p>
+        <div class="review-author">
+          <div class="review-avatar">W</div>
+          <div>
+            <div class="review-name">William Blake</div>
+            <div class="review-date">a year ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"I absolutely loved this salon. The people were great as well as the atmosphere. I do not live near there otherwise I would make it my permanent hair salon. I was traveling from another state and needed a haircut and they absolutely exceeded my expectations!!"</p>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">Jessica M</div>
+            <div class="review-date">7 years ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;</div>
+        <p class="review-text">"I made an appointment to come in at 11:30. When I arrived they were “running behind,” they asked me to come back at 1 pm or even wait until 1pm. I said no. One o’clock came around and I was there. They were still working on someone else.
+
+They have no respect for customers’ time and zero time management skills."</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Alicia Salas</div>
+            <div class="review-date">a year ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"David is fabulous and the salon is so welcoming. Great place."</p>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">Lmb3</div>
+            <div class="review-date">11 months ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Lisa is the best hairstylist.  She always cuts and styles my hair just like I want it.  Many years a satisfied customer."</p>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">judy stechmann</div>
+            <div class="review-date">11 years ago</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- REAL HOURS FROM GOOGLE -->
+
+<section class="hours-section" id="hours">
+  <div class="inner text-center">
+    <span class="section-label">Open Hours</span>
+    <h2 class="section-title">When to Visit</h2>
+    <p class="section-desc center">Book your appointment or walk in during these hours.</p>
+    <div class="hours-grid">
+      
+      
+      <div class="hours-row">
+        <span class="day">Monday</span>
+        <span class="time">Closed</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Tuesday</span>
+        <span class="time">9:00 AM – 8:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Wednesday</span>
+        <span class="time">9:00 AM – 5:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Thursday</span>
+        <span class="time">9:00 AM – 5:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Friday</span>
+        <span class="time">9:00 AM – 5:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Saturday</span>
+        <span class="time">9:00 AM – 3:00 PM</span>
+      </div>
+      
+      
+      <div class="hours-row">
+        <span class="day">Sunday</span>
+        <span class="time">Closed</span>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="inner">
+    <div style="margin-bottom:48px">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Visit Torrent Salon</h2>
+      <p class="section-desc">Walk in or call ahead &mdash; we're ready to make you feel amazing.</p>
+    </div>
+    <div class="location-grid">
+      <div class="loc-info">
+        
+        <div class="loc-item"><div class="loc-icon">&#128205;</div><div><h4>Address</h4><p>4358 Old Shell Rd ste c, Mobile, AL 36608, USA</p></div></div>
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#128222;</div><div><h4>Phone</h4><a href="tel:(251) 343-8106">(251) 343-8106</a></div></div>
+        
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#127760;</div><div><h4>Google Maps</h4><a href="https://maps.google.com/?cid=17996600255151542351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank">View on Google Maps</a></div></div>
+        
+      </div>
+      
+      <div class="map-wrap">
+        <iframe loading="lazy" src="https://maps.google.com/maps?q=4358+Old+Shell+Rd+ste+c%2C+Mobile%2C+AL+36608%2C+USA&output=embed"></iframe>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="inner">
+    <span class="section-label">Ready?</span>
+    <h2 class="section-title">Your Glow-Up Awaits</h2>
+    <p>Walk in anytime or call to book your next appointment.</p>
+    
+    <a href="tel:(251) 343-8106" class="btn-primary" style="font-size:1.1rem;padding:18px 44px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call (251) 343-8106
+    </a>
+    
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Torrent Salon</div>
+  <p>&copy; 2026 Torrent Salon. All rights reserved.</p>
+  <p class="powered">Website by Nova Web Solutions</p>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})
+},{threshold:.1});
+document.querySelectorAll('.srv,.review-card,.loc-item,.hours-row').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

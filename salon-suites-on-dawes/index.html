@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Suites On Dawes — salon in Mobile, AL</title>
+<meta name="description" content="Salon Suites On Dawes — Premium salon in Mobile, AL. Expert styling, beauty, wellness. Call (251) 634-4002.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0e080f;--bg2:#160e18;--bg3:#1e1422;
+  --surface:#ffffff08;--surface-hover:#ffffff12;--border:#ffffff15;
+  --accent:#d4789c;--accent2:#e8a0bf;--accent-glow:#d4789c40;
+  --purple:#4a1942;--purple-light:#6b2fa0;
+  --white:#fff;--gray:#a89db0;--light:#e5e0eb;
+  --font:'Nunito',system-ui,sans-serif;--display:'Cormorant Garamond',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--light);line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,8,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+nav.scrolled{background:rgba(14,8,15,.95);height:60px}
+.nav-logo{font-family:var(--display);font-size:1.6rem;color:var(--white);font-weight:600}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--bg);padding:10px 24px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.85rem;transition:all .3s}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://places.googleapis.com/v1/places/ChIJkxCas12xm4gRdFTcuT_PbNM/photos/Ab43m-vD-EoU2nJO61wDlvaMir9eQxqHf5c468n_8DwR8OhT8PDp4B2OeL9EXVrqNPre00veBDQbfhQD5MYqukCogICc4GnaY8Pyk00zqv5PsMO2k8fr0AiT9UOYs_zgr6inGpoT4tA6JHMJr5WNj9MCwYHto_XNqRRXi2_0FHaj0LK5m1D6kzL6Hj8HmhEuqheOSL2HsBIVesdS5viCHYZ8qR9XEAe-3rXthy4ic7u3_-CjcHwgEHt4gU5dRmcnuUeQVQlU0tZCx6rSUXXkw5usOxWAsK70NiV_5MVvHwVItLgPTrWeHpprYobXZI8sWD4C_GexEuRp8uwVHcYuI2hSC74lxluVqPJYnSEWBAfgCkZc71ju3nByN2LTeNr6GXIyUHq_D0CiWLpPJSyRhyc38oZB3cxkExSdUr5mVBGkxPy0Q9n6/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU') center/cover no-repeat;opacity:.25}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,transparent 30%,transparent 50%,var(--bg) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:8px 20px;margin-bottom:28px;font-size:.8rem;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.hero-badge .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--display);font-size:clamp(3rem,8vw,5.5rem);color:var(--white);line-height:1.05;margin-bottom:20px;font-weight:600}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:1.15rem;color:var(--gray);max-width:520px;margin:0 auto 12px;font-weight:300}
+.hero-rating{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:.95rem;margin-bottom:32px}
+.hero-rating .stars{letter-spacing:2px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .3s}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-primary svg{width:18px;height:18px}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:500;font-size:1rem;transition:all .3s}
+.btn-secondary:hover{background:var(--surface-hover);border-color:var(--accent)}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--gray);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.5;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+section{padding:100px 20px;position:relative}
+.inner{max-width:1100px;margin:0 auto}
+.section-label{display:inline-block;color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:16px}
+.section-desc{color:var(--gray);max-width:550px;font-size:1.02rem;margin-bottom:48px}
+.section-desc.center{margin-left:auto;margin-right:auto;text-align:center}
+.text-center{text-align:center}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:36px 28px;text-align:center;transition:all .4s}
+.srv:hover{border-color:var(--accent);transform:translateY(-6px)}
+.srv-icon{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple-light));display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.4rem}
+.srv h3{color:var(--white);font-size:1.05rem;font-weight:600;margin-bottom:8px}
+.srv p{color:var(--gray);font-size:.9rem;line-height:1.6}
+
+/* GALLERY */
+.gallery{padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.gallery img{width:100%;height:280px;object-fit:cover;display:block;filter:brightness(.85);transition:filter .4s}
+.gallery img:hover{filter:brightness(1)}
+.gallery-placeholder{height:280px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:.9rem}
+
+/* STATS */
+.experience{padding:80px 20px;background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.exp-stats{display:flex;gap:60px;justify-content:center;flex-wrap:wrap;text-align:center}
+.stat-num{font-family:var(--display);font-size:3.5rem;color:var(--accent)}
+.stat-label{color:var(--gray);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* REVIEWS */
+.reviews-section{background:var(--bg2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.review-card{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s}
+.review-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.review-stars{color:var(--accent);font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.review-text{color:var(--light);font-size:.95rem;line-height:1.7;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.85rem}
+.review-name{color:var(--white);font-weight:600;font-size:.9rem}
+.review-date{color:var(--gray);font-size:.8rem}
+
+/* HOURS */
+.hours-section{background:var(--bg)}
+.hours-grid{max-width:500px;margin:0 auto}
+.hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+.hours-row .day{color:var(--light);font-weight:500}
+.hours-row .time{color:var(--accent);font-weight:500}
+
+/* LOCATION */
+.location{background:var(--bg2)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.loc-info{display:flex;flex-direction:column;gap:20px}
+.loc-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--bg3);border:1px solid var(--border);border-radius:16px;transition:border-color .3s}
+.loc-item:hover{border-color:var(--accent)}
+.loc-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.loc-item h4{color:var(--white);font-size:.95rem;margin-bottom:4px}
+.loc-item p,.loc-item a{color:var(--gray);font-size:.9rem}
+.loc-item a{color:var(--accent);text-decoration:none;font-weight:500}
+.map-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:100%;min-height:380px}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:grayscale(.2) hue-rotate(20deg)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:80px 20px}
+.cta-section .section-title{margin-bottom:12px}
+.cta-section p{color:var(--gray);max-width:500px;margin:0 auto 32px;font-size:1.05rem}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 20px;text-align:center}
+.footer-logo{font-family:var(--display);font-size:1.5rem;color:var(--white);margin-bottom:8px}
+.footer-logo span{color:var(--accent)}
+footer p{color:var(--gray);font-size:.85rem}
+footer .powered{margin-top:12px;font-size:.75rem;color:#555}
+
+@media(max-width:900px){
+  .services-grid,.gallery{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .exp-stats{gap:40px}
+  .map-wrap{min-height:300px}
+}
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .services-grid,.gallery{grid-template-columns:1fr}
+  .exp-stats{flex-direction:column;gap:24px}
+  .hero h1{font-size:2.8rem}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">Salon Suites On Dawes</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    
+    <li><a href="#location">Visit Us</a></li>
+  </ul>
+  <a href="tel:(251) 634-4002" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Now Booking &mdash; Walk-Ins Welcome</div>
+    <h1>Salon Suites On Dawes</h1>
+    <p class="hero-sub">Your beauty destination in Mobile, AL. Expert styling, relaxing atmosphere, stunning results.</p>
+    
+    <div class="hero-rating">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>4.8 stars (22 reviews)</span>
+    </div>
+    
+    <div class="hero-btns">
+      
+      <a href="tel:(251) 634-4002" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Book Now: (251) 634-4002
+      </a>
+      
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll &#8595;</div>
+</header>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-desc center">Expert beauty and wellness treatments tailored to you.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv"><div class="srv-icon">&#128135;</div><h3>Haircuts & Styling</h3><p>Precision cuts and custom styling for every hair type and texture.</p></div>
+      <div class="srv"><div class="srv-icon">&#127912;</div><h3>Color & Highlights</h3><p>Vibrant color, natural highlights, balayage, ombre, and more.</p></div>
+      <div class="srv"><div class="srv-icon">&#128133;</div><h3>Nail Services</h3><p>Manicures, pedicures, gel, acrylics, and custom nail art.</p></div>
+      <div class="srv"><div class="srv-icon">&#127800;</div><h3>Facials & Skincare</h3><p>Rejuvenating treatments for a healthy, radiant, glowing complexion.</p></div>
+      <div class="srv"><div class="srv-icon">&#10024;</div><h3>Waxing</h3><p>Smooth results with gentle waxing services for face and body.</p></div>
+      <div class="srv"><div class="srv-icon">&#128134;</div><h3>Blowouts & Updos</h3><p>Perfect for special occasions, events, or everyday glam.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL PHOTOS FROM GOOGLE -->
+
+<div class="gallery">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJkxCas12xm4gRdFTcuT_PbNM/photos/Ab43m-vD-EoU2nJO61wDlvaMir9eQxqHf5c468n_8DwR8OhT8PDp4B2OeL9EXVrqNPre00veBDQbfhQD5MYqukCogICc4GnaY8Pyk00zqv5PsMO2k8fr0AiT9UOYs_zgr6inGpoT4tA6JHMJr5WNj9MCwYHto_XNqRRXi2_0FHaj0LK5m1D6kzL6Hj8HmhEuqheOSL2HsBIVesdS5viCHYZ8qR9XEAe-3rXthy4ic7u3_-CjcHwgEHt4gU5dRmcnuUeQVQlU0tZCx6rSUXXkw5usOxWAsK70NiV_5MVvHwVItLgPTrWeHpprYobXZI8sWD4C_GexEuRp8uwVHcYuI2hSC74lxluVqPJYnSEWBAfgCkZc71ju3nByN2LTeNr6GXIyUHq_D0CiWLpPJSyRhyc38oZB3cxkExSdUr5mVBGkxPy0Q9n6/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Salon Suites On Dawes - Photo 1" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJkxCas12xm4gRdFTcuT_PbNM/photos/Ab43m-tsCBmp0c55D4OspHH0GBT8FfP8yOXKKp6k_Of5216k4vuKZ6-ptfEZulXRxe369dFaFP30Vq0yCP1vK8QsXi8mXf-UT8icSFph3p7HlZ6YT2ru6_aJGompCbwcn6Zqa6HhF9JH7Hoq-V8--09qiPXoBTpUdoJI4s-utSOFocgm8jkzFa0ib9cuArIvQ-OSezEINwcgOcktf3P0m6Tl0uRIwl23AzZ0y5WC1f8xWd_gZ2Hv04G3p7EYhSKPVf59Y2ePPgDugt_AD9eFvlR2ID4guWrc0BmbAhRcW3jzGk2rtfhbSNO0RZXNDS5GKKzHzSA0YfAqQt0HG7WXfLx9MqoApnkYaqBwswSELZCgknZXEUwy7LATiQt7Sr5g6vcYZQZTox-xbQJZn7dU668Ei6gheHpj1Rthxo85jqZCU4rPPA/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Salon Suites On Dawes - Photo 2" loading="lazy">
+  
+  <img src="https://places.googleapis.com/v1/places/ChIJkxCas12xm4gRdFTcuT_PbNM/photos/Ab43m-tAbQbCcKoznh-Pw0-ed4Tu8jh9EuGPjbXH1IlV-wRa3b-BP7q3WvyXviVpvHCcCHlYukqC5Zx_KrYC2KglhYeejk7Aid50F3pa1lv5N6FFbTk-05dx1TShbb9Fo1eKlUKYX-e4OhFRL4Y0qcUjW65I0RsHxJog3TxLGSnHb5tfY3amh9wIT-o-SClZWQyneQLKAlFTEXXWvK1EgZZ-Jz7KZjBKGhzL0Rpd2nK5PGNWh_3NMJUpGVbSckkbPKD88Fu6UP3WwigVJQJGDcVSVVfOQ1TL-0CuxB4WFFKYlhC-UOuQPmxkbTIQlsQ3pddwmUReoDuLZkCNOr9aEa0Co_NLbhXcoU3TRTfJ7EZpicH-Vz2ygo50oKo5p2bd0Frk_7oBaWDASKfhWHtzqAhN58s85pOsvbQa1f3JGJVNVgrlQRI/media?maxHeightPx=800&maxWidthPx=1200&key=AIzaSyB567CJJAEtnNC-KRwTXMabPqMEiurDwOU" alt="Salon Suites On Dawes - Photo 3" loading="lazy">
+  
+  
+</div>
+
+
+<!-- STATS -->
+<div class="experience">
+  <div class="exp-stats">
+    <div><div class="stat-num">4.8</div><div class="stat-label">Google Rating</div></div>
+    <div><div class="stat-num">22+</div><div class="stat-label">Happy Clients</div></div>
+    <div><div class="stat-num">6+</div><div class="stat-label">Services</div></div>
+    <div><div class="stat-num">&#10003;</div><div class="stat-label">Walk-Ins Welcome</div></div>
+  </div>
+</div>
+
+<!-- REAL GOOGLE REVIEWS -->
+
+<section class="reviews-section" id="reviews">
+  <div class="inner">
+    <div class="text-center">
+      <span class="section-label">Client Love</span>
+      <h2 class="section-title">Real Reviews from Real Clients</h2>
+      <p class="section-desc center">Straight from Google &mdash; see why Mobile, AL trusts us with their beauty.</p>
+    </div>
+    <div class="reviews-grid">
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Ashton is the best! She's been cutting my hair for years and I always love it. I have moved to Saraland and still drive out here for her to cut me hair!"</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Ashley Reid</div>
+            <div class="review-date">2 years ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"This is the coziest salon I have ever been to & I just absolutely LOVE it!!! It is the perfect combination of classy & comfy, you just feel right at home there :)  & my hair looks amazing (special thanks to Anna Lewis)... I could not be happier!!!"</p>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">Lindy Young</div>
+            <div class="review-date">8 years ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Love Michelle and what she does to my hair. The atmosphere is fabulous and  business always clean.
+Never been happier."</p>
+        <div class="review-author">
+          <div class="review-avatar">D</div>
+          <div>
+            <div class="review-name">DeLane Speed</div>
+            <div class="review-date">4 years ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Got a haircut by Tori Schultz and love it.  I brought a picture of what I wanted it close to and with her suggestions I left there completely happy and scheduled a haircut for my husband…"</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sheryl Edwards</div>
+            <div class="review-date">3 years ago</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Anna an HER MOMMA ARE AMAZING, ID NEVER GO ANYWHERE ELSE,!!!!! LOVE THESE LADIES, THEY CAN DO ANYTHING AND IF THEY CANT THEY WILL LEARN HOW,AN THEY DO EXACTLY WHAT I ASK AN IF ANY DOUT THEY ASK ,LOVE THESE GIRLS"</p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div>
+            <div class="review-name">Ruby Dunlap</div>
+            <div class="review-date">7 years ago</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- REAL HOURS FROM GOOGLE -->
+
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="inner">
+    <div style="margin-bottom:48px">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Visit Salon Suites On Dawes</h2>
+      <p class="section-desc">Walk in or call ahead &mdash; we're ready to make you feel amazing.</p>
+    </div>
+    <div class="location-grid">
+      <div class="loc-info">
+        
+        <div class="loc-item"><div class="loc-icon">&#128205;</div><div><h4>Address</h4><p>2972 Dawes Rd, Mobile, AL 36619, USA</p></div></div>
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#128222;</div><div><h4>Phone</h4><a href="tel:(251) 634-4002">(251) 634-4002</a></div></div>
+        
+        
+        
+        <div class="loc-item"><div class="loc-icon">&#127760;</div><div><h4>Google Maps</h4><a href="https://maps.google.com/?cid=15234779512095659124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank">View on Google Maps</a></div></div>
+        
+      </div>
+      
+      <div class="map-wrap">
+        <iframe loading="lazy" src="https://maps.google.com/maps?q=2972+Dawes+Rd%2C+Mobile%2C+AL+36619%2C+USA&output=embed"></iframe>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="inner">
+    <span class="section-label">Ready?</span>
+    <h2 class="section-title">Your Glow-Up Awaits</h2>
+    <p>Walk in anytime or call to book your next appointment.</p>
+    
+    <a href="tel:(251) 634-4002" class="btn-primary" style="font-size:1.1rem;padding:18px 44px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call (251) 634-4002
+    </a>
+    
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Salon Suites On Dawes</div>
+  <p>&copy; 2026 Salon Suites On Dawes. All rights reserved.</p>
+  <p class="powered">Website by Nova Web Solutions</p>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})
+},{threshold:.1});
+document.querySelectorAll('.srv,.review-card,.loc-item,.hours-row').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
