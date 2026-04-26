@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Repair Biz 5 — auto repair in Phoenix, AZ</title>
+<meta name="description" content="Auto Repair Biz 5 — Professional auto repair in Phoenix, AZ. Call (555) 104-1444 for a free quote.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#1e3a5f;--primary-light:#2c5282;--accent:#3b82f6;--accent-hover:#2563eb;--bg-light:#f0f5ff;--bg-alt:#f8fafc;--text:#1e293b;--text-light:#64748b;--white:#fff;--shadow:0 4px 24px rgba(0,0,0,.06)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6}
+
+nav{position:fixed;top:0;width:100%;background:rgba(30,58,95,.97);backdrop-filter:blur(10px);z-index:100;padding:14px 30px;display:flex;justify-content:space-between;align-items:center}
+nav .logo{font-family:'Poppins',sans-serif;color:var(--white);font-size:1.2rem;font-weight:700}
+nav .logo span{color:var(--accent)}
+nav ul{list-style:none;display:flex;gap:26px}
+nav ul a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s}
+nav ul a:hover{color:var(--white)}
+
+.hero{background:linear-gradient(160deg,var(--primary) 0%,var(--primary-light) 60%,#1a4b8c 100%);color:var(--white);padding:150px 20px 100px;text-align:center;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to bottom right,transparent 49.5%,var(--white) 50%)}
+.hero h1{font-family:'Poppins',sans-serif;font-size:2.8rem;margin-bottom:14px}
+.hero .tagline{font-size:1.15rem;font-weight:300;opacity:.9;max-width:600px;margin:0 auto 10px}
+.hero .rating{color:#ffd700;margin-bottom:20px;font-size:1.05rem}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-p{display:inline-block;background:var(--accent);color:var(--white);padding:14px 36px;border-radius:8px;text-decoration:none;font-weight:600;transition:background .3s,transform .2s}
+.btn-p:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-o{display:inline-block;border:2px solid rgba(255,255,255,.5);color:var(--white);padding:12px 34px;border-radius:8px;text-decoration:none;font-weight:500;transition:border-color .3s,background .3s}
+.btn-o:hover{border-color:var(--white);background:rgba(255,255,255,.1)}
+
+section{padding:80px 20px}
+.inner{max-width:1000px;margin:0 auto}
+.stitle{font-family:'Poppins',sans-serif;font-size:2rem;color:var(--primary);text-align:center;margin-bottom:8px}
+.ssub{text-align:center;color:var(--text-light);margin-bottom:44px;font-weight:400}
+
+.services{background:var(--bg-alt)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.scard{background:var(--white);border-radius:12px;padding:32px 24px;text-align:center;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+.scard:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(0,0,0,.1)}
+.scard .icon{width:56px;height:56px;background:var(--bg-light);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 16px}
+.scard h3{color:var(--primary);margin-bottom:8px;font-size:1.05rem}
+.scard p{color:var(--text-light);font-size:.92rem}
+
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.why-item{display:flex;gap:16px;align-items:flex-start}
+.why-item .num{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:var(--accent);line-height:1;min-width:40px}
+.why-item h3{color:var(--primary);margin-bottom:4px;font-size:1.05rem}
+.why-item p{color:var(--text-light);font-size:.92rem}
+
+.service-area{background:var(--primary);color:var(--white);text-align:center}
+.service-area .stitle{color:var(--white)}
+.service-area .ssub{color:rgba(255,255,255,.7)}
+.area-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:10px 24px;margin:6px;font-size:.95rem}
+
+.contact{background:var(--bg-alt)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;align-items:center;gap:14px;font-size:1.02rem}
+.contact-item .ci{width:44px;height:44px;background:var(--bg-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-item a{color:var(--primary);text-decoration:none;font-weight:500}
+.map-frame{width:100%;height:320px;border:none;border-radius:12px;box-shadow:var(--shadow)}
+
+footer{background:var(--primary);color:var(--white);text-align:center;padding:30px 20px}
+footer a{color:var(--accent);text-decoration:none}
+.powered{margin-top:8px;font-size:.75rem;opacity:.5}
+
+@media(max-width:768px){
+  nav ul{display:none}
+  .hero h1{font-size:2rem}
+  .hero{padding:130px 20px 80px}
+  .contact-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){.services-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Auto Repair Biz 5</div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#area">Service Area</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>Auto Repair Biz 5</h1>
+  <p class="tagline">Trusted auto repair professionals serving Phoenix, AZ and surrounding areas. Quality work, honest pricing, guaranteed satisfaction.</p>
+  <p class="rating">&#11088; 4.7/5 on Google</p>
+  <div class="cta-row">
+    <a href="tel:(555) 104-1444" class="btn-p">&#128222; Call (555) 104-1444</a>
+    <a href="#contact" class="btn-o">Get a Free Quote</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="inner">
+    <h2 class="stitle">Our Services</h2>
+    <p class="ssub">Professional auto repair solutions for every need</p>
+    <div class="services-grid">
+      <div class="scard"><div class="icon">&#128295;</div><h3>Repairs &amp; Fixes</h3><p>Fast, reliable repair services to get things working right again.</p></div>
+      <div class="scard"><div class="icon">&#127959;</div><h3>New Installation</h3><p>Expert installation done right the first time, every time.</p></div>
+      <div class="scard"><div class="icon">&#128269;</div><h3>Inspections</h3><p>Thorough assessments to identify problems before they get costly.</p></div>
+      <div class="scard"><div class="icon">&#128737;</div><h3>Maintenance</h3><p>Preventative maintenance plans to keep systems running smoothly.</p></div>
+      <div class="scard"><div class="icon">&#9889;</div><h3>Emergency Service</h3><p>Available for urgent situations when you need help fast.</p></div>
+      <div class="scard"><div class="icon">&#128203;</div><h3>Free Estimates</h3><p>Upfront, no-obligation quotes so you know exactly what to expect.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="inner">
+    <h2 class="stitle">Why Choose Us</h2>
+    <p class="ssub">Phoenix, AZ trusts Auto Repair Biz 5</p>
+    <div class="why-grid">
+      <div class="why-item"><div class="num">01</div><div><h3>Licensed &amp; Insured</h3><p>Fully licensed professionals with comprehensive insurance for your peace of mind.</p></div></div>
+      <div class="why-item"><div class="num">02</div><div><h3>Transparent Pricing</h3><p>No hidden fees or surprise charges. We quote it, you approve it, we do it.</p></div></div>
+      <div class="why-item"><div class="num">03</div><div><h3>Experienced Team</h3><p>Years of hands-on experience delivering quality auto repair work in Phoenix, AZ.</p></div></div>
+      <div class="why-item"><div class="num">04</div><div><h3>Satisfaction Guaranteed</h3><p>We stand behind our work. If you're not happy, we'll make it right.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="service-area" id="area">
+  <div class="inner">
+    <h2 class="stitle">Service Area</h2>
+    <p class="ssub">Proudly serving Phoenix, AZ and neighboring communities</p>
+    <div>
+      <span class="area-badge">Phoenix, AZ</span>
+      <span class="area-badge">Surrounding Areas</span>
+      <span class="area-badge">Residential</span>
+      <span class="area-badge">Commercial</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="inner">
+    <h2 class="stitle">Contact Us</h2>
+    <p class="ssub">Ready to get started? Reach out today.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item"><span class="ci">&#128205;</span><span>500 Main St, Phoenix, AZ</span></div>
+        <div class="contact-item"><span class="ci">&#128222;</span><a href="tel:(555) 104-1444">(555) 104-1444</a></div>
+        <div class="contact-item"><span class="ci">&#127970;</span><span>auto repair in Phoenix, AZ</span></div>
+        
+        <a href="tel:(555) 104-1444" class="btn-p" style="text-align:center;margin-top:10px">Call Now for a Free Quote</a>
+      </div>
+      <div>
+        <iframe class="map-frame" src="https://www.google.com/maps?q=500+Main+St%2C+Phoenix%2C+AZ&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Auto Repair Biz 5. All rights reserved.</p>
+  <p class="powered">Powered by <a href="#">Nova Web Studios</a></p>
+</footer>
+
+</body>
+</html>
